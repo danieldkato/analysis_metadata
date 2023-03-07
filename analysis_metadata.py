@@ -1,4 +1,4 @@
-# Last updated DDK 2019-11-23.
+# Last updated DDK 2023-03-07.
 
 import sys
 import os
@@ -95,9 +95,16 @@ def write_metadata(Metadata, fname, debug=False):
     # TODO: try to get software version information
 
     # Write object to json:
+    final_dict={
+        'inputs' : Metadata.inputs,
+        'parameters' : Metadata.parameters,
+        'outputs' : Metadata.outputs,
+        'data' : Metadata.date,
+        'time' : Metadata.time
+        }
     if fname is not None:
         with open(fname, 'w') as outfile:
-            json.dump(Metadata.dict, outfile, indent=4)
+            json.dump(final_dict, outfile, indent=4)
 
     # Formally return Metadata object, which now includes input file checksums:
     return Metadata
