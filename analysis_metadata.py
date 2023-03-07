@@ -57,6 +57,10 @@ class Metadata:
         d = {"path":path}
         self.outputs.append(d)
         
+    def add_param(self, key, value):
+        self.parameters[key] = value
+
+        
 
 def write_metadata(Metadata, fname, debug=False):
     """
