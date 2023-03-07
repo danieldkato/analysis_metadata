@@ -4,7 +4,6 @@ import sys
 import os
 import subprocess
 import json
-from utilities_ddk.python.mouse_utils import path_wrt_host
 
 class Metadata:
     """
