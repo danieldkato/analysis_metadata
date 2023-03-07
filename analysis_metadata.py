@@ -40,13 +40,12 @@ class Metadata:
         Add output path to self.dict["outputs"]. 
     """
 
-    def __init__(self):
-        self.dict = { "inputs":[], \
-                           "outputs":[], \
-                           "parameters":[],\
-                           "date": None,\
-                           "time":None
-        }
+    def __init__(self):            
+        self.inputs=[]
+        self.outputs=[]
+        self.parameters=dict()
+        self.date=None
+        self.time=None
 
     def add_input(self, path):
     #Add input file path to self.dict["inputs"].
