@@ -79,7 +79,7 @@ def write_metadata(Metadata, fname, debug=False):
     """ 
 
     # Get SHA1 checksums of all input and output files: 
-    io = [Metadata.dict["inputs"], Metadata.dict["outputs"]] 
+    io = [Metadata.inpus, Metadata.outputs] 
     for file_list in io:
         for j, f in enumerate(file_list):
             if 'sha1' not in f:
