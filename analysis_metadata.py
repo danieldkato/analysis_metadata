@@ -50,12 +50,12 @@ class Metadata:
     def add_input(self, path):
     #Add input file path to self.dict["inputs"].
         d = {"path":path}
-        self.dict["inputs"].append(d)
+        self.inputs.append(d)
 
     def add_output(self,path):
     #Add output file path to self.dict["outputs"].
         d = {"path":path}
-        self.dict["outputs"].append(d)
+        self.outputs.append(d)
         
 
 def write_metadata(Metadata, fname, debug=False):
