@@ -99,7 +99,7 @@ def write_metadata(Metadata, fname, debug=False):
         'inputs' : Metadata.inputs,
         'parameters' : Metadata.parameters,
         'outputs' : Metadata.outputs,
-        'data' : Metadata.date,
+        'date' : Metadata.date,
         'time' : Metadata.time
         }
     if fname is not None:
