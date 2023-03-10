@@ -163,7 +163,7 @@ def find_max_dir_suffix(directory, base_name):
     """
    
     dirs = [x for x in os.listdir(directory) if base_name in x]
-    dir_suffixes = [d[len(base_name)-1:] for d in dirs]
+    dir_suffixes = [d[len(base_name):] for d in dirs]
     dir_suffixes = np.array(dir_suffixes)
     numerics = [x.isnumeric() for x in dir_suffixes]
     dir_suffixes = dir_suffixes[numerics]
@@ -172,3 +172,8 @@ def find_max_dir_suffix(directory, base_name):
     except ValueError:
         max_suffix = 0
     return max_suffix
+
+
+
+def increment_dir_name(directory, base_name):
+    max_dir_suffix=
