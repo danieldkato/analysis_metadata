@@ -174,6 +174,14 @@ def find_max_dir_suffix(directory, base_name):
     return max_suffix
 
 
-
 def increment_dir_name(directory, base_name):
-    max_dir_suffix=
+    max_dir_suffix=find_max_dir_suffix(directory, base_name)
+    suffix_length=len(max_dir_suffix)
+    suffix_numeric=int(max_dir_suffix)
+    new_suffix_numeric=suffix_numeric+1
+    new_suffix=str(new_suffix_numeric).zfill(suffix_length)
+    new_basename=base_name+new_suffix
+    return os.path.join(directory, new_basename)    
+    
+    
+    
