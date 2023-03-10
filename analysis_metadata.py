@@ -4,6 +4,7 @@ import sys
 import os
 import subprocess
 import json
+import numpy as np
 
 class Metadata:
     """
@@ -132,3 +133,42 @@ def get_sha1(path):
         sha1 = sys_out[sha1_start:sha1_end]
     
     return sha1
+
+
+
+def find_max_dir_suffix(directory, base_name):
+    """
+    Find the highest number appended to any directory or file whose name
+    begins with base_name. 
+    
+    Parameters:
+    -----------
+    directory: str 
+    	Name of directory in which to search for sub-directories or files whose
+        name begins with base_name.
+
+    base_name: str 
+        Base name of directories to find highest number appended to.
+
+     
+    Returns:
+    --------
+    max_suffix: int 
+    	Highest number appended to any directory or file whose name begins with
+        base_name. If there is no directory of file whose name begins with base_name,
+        returns 0.  
+
+    TODO: return None instead of 0 is there are no directories whose name
+    starts with base_name?
+    """
+   
+    dirs = [x for x in os.listdir(directory) if base_name in x]
+    dir_suffixes = [d[len(base_name)-1:] for d in dirs]
+    dir_suffixes = np.array(dir_suffixes)
+    numerics = [x.isnumeric() for x in dir_suffixes]
+    dir_suffixes = dir_suffixes[numerics]
+    try:
+        max_suffix = max(dir_suffixes)
+    except ValueError:
+        max_suffix = 0
+    return max_suffix
