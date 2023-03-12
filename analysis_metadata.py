@@ -51,6 +51,7 @@ class Metadata:
         self.parameters=dict()
         self.date=None
         self.time=None
+        self.duration=None
 
     def add_input(self, path):
     #Add input file path to self.dict["inputs"].
