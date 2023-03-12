@@ -177,7 +177,7 @@ def find_max_dir_suffix(directory, base_name):
 
 def increment_dir_name(directory, base_name):
     max_dir_suffix=find_max_dir_suffix(directory, base_name)
-    if type(max_dir_suffix)==str:
+    if isinstance(max_dir_suffix, str):
         suffix_length=len(max_dir_suffix)
         suffix_numeric=int(max_dir_suffix)
     elif max_dir_suffix==0:
