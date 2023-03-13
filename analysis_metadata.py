@@ -225,13 +225,17 @@ def time_readable_2_str(days, hours, minutes, seconds):
     
     # Zip up into list:
     pairs=list(zip(t_keep, labels_keep))
-    strs=[str(x[0]) + x[1] for x in pairs]
-    print(strs)
+    strs=[str(int(x[0])) + x[1] for x in pairs]
     strs.reverse()
-    print(strs)
     output_str=', '.join(strs) 
     
     return output_str
+
+
+def seconds_2_full_time_str(seconds):
+    days, hours, minutes, seconds=time_readable(seconds)
+    final_str=time_readable_2_str(days,hours,minutes,seconds)
+    return final_str
     
     
     
