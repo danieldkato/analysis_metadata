@@ -106,7 +106,8 @@ def write_metadata(Metadata, fname, debug=False):
         'parameters' : Metadata.parameters,
         'outputs' : Metadata.outputs,
         'date' : Metadata.date,
-        'time' : Metadata.time
+        'time' : Metadata.time,
+        'duration' : Metadata.duration
         }
     if fname is not None:
         with open(fname, 'w') as outfile:
