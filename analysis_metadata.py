@@ -187,7 +187,26 @@ def increment_dir_name(directory, base_name):
     new_suffix_numeric=suffix_numeric+1
     new_suffix=str(new_suffix_numeric).zfill(suffix_length)
     new_basename=base_name+new_suffix
-    return os.path.join(directory, new_basename)    
+    return os.path.join(directory, new_basename) 
+
+    
+def time_readable(seconds):
+    days=0
+    hours=0
+    minutes=0
+    seconds=seconds
+    minutes=np.floor(seconds/60)
+    if minutes > 1:
+        hours=np.floor(minutes/60)
+        seconds=seconds%60
+        if hours >= 1:
+            days=np.floor(hours/24)
+            minutes=minutes%60
+            if days>= 1:
+                hours=hours%24
+    return days, hours, minutes, seconds
+            
+        
     
     
     
