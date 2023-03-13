@@ -205,8 +205,33 @@ def time_readable(seconds):
             if days>= 1:
                 hours=hours%24
     return days, hours, minutes, seconds
-            
-        
+
+
+def time_readable_2_str(days, hours, minutes, seconds):
+    
+    # Keep values up to highest non-zero index:
+    t=(seconds, minutes, hours, days)            
+    max_idx=np.max(np.argwhere([x!=0 for x in t]))
+    t_keep=t[0:max_idx+1]
+    
+    # Select labels for corresponding kept values:
+    labels=[' seconds', ' minutes', ' hours',  ' days']
+    labels_keep=labels[0:max_idx+1]
+    
+    # Deal with pluralization :P 
+    for tx, val in enumerate(t_keep):
+        if val==1:
+            labels_keep[tx]=labels_keep[tx][0:-1]
+    
+    # Zip up into list:
+    pairs=list(zip(t_keep, labels_keep))
+    strs=[str(x[0]) + x[1] for x in pairs]
+    print(strs)
+    strs.reverse()
+    print(strs)
+    output_str=', '.join(strs) 
+    
+    return output_str
     
     
     
